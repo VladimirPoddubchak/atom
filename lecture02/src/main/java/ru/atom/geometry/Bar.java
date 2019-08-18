@@ -7,6 +7,9 @@ public class Bar implements Collider {
     private final Point forthPoint;
 
     public Bar(Point firstPoint, Point secondPoint) {
+        if (firstPoint.getX()==secondPoint.getX()||firstPoint.getY()==secondPoint.getY()){
+            throw new IllegalArgumentException("This isn't Bar. Check coordinates!");
+        }
         this.firstPoint = new Point(Integer.min(firstPoint.getX(),secondPoint.getX()),Integer.min(firstPoint.getY(),secondPoint.getY()));
         this.secondPoint = new Point(Integer.max(firstPoint.getX(),secondPoint.getX()),Integer.max(firstPoint.getY(),secondPoint.getY()));
         this.thirdPoint = new Point(firstPoint.getX(),secondPoint.getY());
